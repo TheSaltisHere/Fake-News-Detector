@@ -5,3 +5,31 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import PassiveAggressiveClassifier
 from sklearn.feature_extraction.text import TdifVectorizer
 from sklearn.metrics import accuracy_score, confusion_matrix
+
+
+# Read the data
+dataframe = pd.read_csv("dataset.csv")
+
+dataframe.head()
+dataframe.shape()
+
+
+labels = dataframe.label
+labels.head()
+
+
+# Split the data into training and test sets
+train_x, test_x, train_y, test_y = train_test_split(
+    dataframe['text'], labels, test_size=0.2, random_state=42)
+
+TdifVectorizer = TdifVectorizer()
+train_x_dtm = TdifVectorizer.fit_transform(train_x)
+test_x_dtm = TdifVectorizer.transform(test_x)
+
+
+# Initialize a PassiveAggressiveClassifier
+clf = PassiveAggressiveClassifier(max_iter=50)
+clf.fit(train_x_dtm, train_y_dtm)
+predicted_y = clf.predict(test_x_dtm)
+score = accuracy_score(test_y, predicted_y)
+print("Accuracy =", score*100, "%")
