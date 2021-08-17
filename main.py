@@ -22,9 +22,9 @@ labels.head()
 train_x, test_x, train_y, test_y = train_test_split(
     dataframe['text'], labels, test_size=0.2, random_state=42)
 
-TdifVectorizer = TdifVectorizer()
-train_x_dtm = TdifVectorizer.fit_transform(train_x)
-test_x_dtm = TdifVectorizer.transform(test_x)
+Tdif_Vectorizer = TdifVectorizer()
+train_x_dtm = Tdif_Vectorizer.fit_transform(train_x)
+test_x_dtm = Tdif_Vectorizer.transform(test_x)
 
 
 # Initialize a PassiveAggressiveClassifier
