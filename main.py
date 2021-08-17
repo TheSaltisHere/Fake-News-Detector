@@ -33,3 +33,7 @@ clf.fit(train_x_dtm, train_y_dtm)
 predicted_y = clf.predict(test_x_dtm)
 score = accuracy_score(test_y, predicted_y)
 print("Accuracy =", score*100, "%")
+
+# confusion matrix for no of true positives, false positives, true negatives and false negatives
+
+confusion_matrix(test_y, predicted_y, labels=['FAKE', 'REAL'])
