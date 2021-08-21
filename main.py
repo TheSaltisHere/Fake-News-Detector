@@ -28,7 +28,6 @@ labels.head()
 # Split the data into training and test sets
 
 train_x, test_x, train_y, test_y = train_test_split(
-
     dataframe['text'], labels, test_size=0.2, random_state=42)
 
 
