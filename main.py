@@ -35,8 +35,6 @@ train_x, test_x, train_y, test_y = train_test_split(
 vectorizer = TfidfVectorizer()
 
 train_x_dtm = vectorizer.fit_transform(train_x)
-train_y_dtm = vectorizer.transform(train_y)
-
 
 test_x_dtm = vectorizer.transform(test_x)
 
@@ -45,7 +43,7 @@ test_x_dtm = vectorizer.transform(test_x)
 
 clf = PassiveAggressiveClassifier(max_iter=50)
 
-clf.fit(train_x_dtm, train_y_dtm)
+clf.fit(train_x_dtm, train_y)
 
 predicted_y = clf.predict(test_x_dtm)
 
