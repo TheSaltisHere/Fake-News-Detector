@@ -35,6 +35,8 @@ train_x, test_x, train_y, test_y = train_test_split(
 vectorizer = TfidfVectorizer()
 
 train_x_dtm = vectorizer.fit_transform(train_x)
+train_y_dtm = vectorizer.transform(train_y)
+
 
 test_x_dtm = vectorizer.transform(test_x)
 
@@ -54,8 +56,4 @@ print("Accuracy =", score*100, "%")
 
 # confusion matrix for no of true positives, false positives, true negatives and false negatives
 
-def jls_extract_def():
-    return confusion_matrix
-
-
-jls_extract_def()(test_y, predicted_y, labels=['FAKE', 'REAL'])
+confusion_matrix(test_y, predicted_y, labels=['FAKE', 'REAL'])
