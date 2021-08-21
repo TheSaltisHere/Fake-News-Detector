@@ -13,7 +13,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Read the data
 
-dataframe = pd.read_csv("Fake.csv")
+dataframe = pd.read_csv("dataset.csv")
 
 
 dataframe.shape
